@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <SearchBar onSearch={handleSearch} />
-      {photos.length > 0 && <ImageGallery photos={photos} />}
+      {photos.length > 0 && <ImageGallery photos={photos.results} />}
     </div>
   );
 }
