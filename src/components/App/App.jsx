@@ -1,32 +1,40 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import ImageGallery from '../ImageGallery/ImageGallery';
+import { fetchGallery } from '../gallery-api';
+import SearchBar from '../SearchBar/SearchBar';
 
 // import SearchBar from '../SearchBar/SearchBar';
-// import toast, { Toaster } from 'react-hot-toast';
+
 // import ImageGallery from '../ImageGallery/ImageGallery';
 
 // import { fetchGallery } from '../gallery-api';
 
-// const warning = () => {
-//   toast.error('Please enter a searchquery', {
-//     duration: 2000,
-//     icon: '⚠️',
-//   });
-// };
-
 function App() {
-  useEffect(() => {
-    async function getPhotos() {
-      const response = await axios.get('https://api.unsplash.com/photos?client_id=WW6X1WrQmuJ-vE6R1rS70UQJ-uUsrM_fhzZ5r0cwV74');
+  const [photos, setPhotos] = useState([]);
+  // const [query, setQuery] = useState('');
 
-      const data = await response.data;
-      console.log(data);
-    }
+  const handleSearch = async (newQuery) => {
+    console.log(newQuery);
+    const fetchedPhotos = await fetchGallery(newQuery);
+    console.log(fetchedPhotos);
+    setPhotos(fetchedPhotos);
+  };
 
-    getPhotos();
-  }, []);
+  // useEffect(() => {
+  //   async function getPhotos() {
 
-  return <></>;
+  //   }
+
+  //   getPhotos();
+  // }, []);
+
+  return (
+    <div>
+      <SearchBar onSearch={handleSearch} />
+      {photos.length > 0 && <ImageGallery photos={photos} />}
+    </div>
+  );
 }
 
 export default App;

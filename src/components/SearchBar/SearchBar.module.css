@@ -1,0 +1,33 @@
+.form {
+  margin: 12px;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  gap: 4px;
+}
+
+.input {
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: #efbb61c0;
+  color: #000000;
+  border: 1px transparent solid;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* .button:hover,
+.button:focus {
+  background-color: #705257;
+} */
+
+.error {
+  color: #ff4500;
+}

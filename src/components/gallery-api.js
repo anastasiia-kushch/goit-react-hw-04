@@ -1,18 +1,13 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://api.unsplash.com/v1';
+axios.defaults.baseURL = 'https://api.unsplash.com/';
 
-export const fetchGallery = async (searchQuery, page = 1) => {
-  const response = await axios.get('/search', {
-    headers: {
-      Authorization: 'WW6X1WrQmuJ-vE6R1rS70UQJ-uUsrM_fhzZ5r0cwV74',
-    },
-    params: {
-      query: searchQuery,
-      per_page: 12,
-      page,
-    },
-  });
+const ACCESS_KEY = 'WW6X1WrQmuJ-vE6R1rS70UQJ-uUsrM_fhzZ5r0cwV74'
 
-  return response.data.hits;
+export const fetchGallery = async (query) => {
+  const response = await axios.get(
+    `photos?client_id=${ACCESS_KEY}&query=${query}`
+  );
+
+  return response.data;
 };
