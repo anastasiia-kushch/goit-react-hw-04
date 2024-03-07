@@ -1,6 +1,6 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { Toaster } from 'react-hot-toast';
-import warning from '../ErrorMessage/ErrorMessage';
+import { warning } from '../ErrorMessage/ErrorMessage';
 import css from '../SearchBar/SearchBar.module.css';
 
 export default function SearchBar({ onSearch }) {

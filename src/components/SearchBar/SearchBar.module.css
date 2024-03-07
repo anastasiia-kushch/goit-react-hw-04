@@ -1,6 +1,8 @@
 .form {
-  margin: 12px;
+  margin: 18px;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 .container {
@@ -11,8 +13,14 @@
 .input {
   padding: 4px;
   font-size: 16px;
-  border: 1px solid;
+  border: 1px solid #808080;
   border-radius: 4px;
+  width: 190px;
+}
+
+.input:hover,
+.input:focus {
+  border-color:#efbb61c0;
 }
 
 .button {
@@ -23,10 +31,10 @@
   font-size: 16px;
 }
 
-/* .button:hover,
+.button:hover,
 .button:focus {
-  background-color: #705257;
-} */
+  background-color: #d39a37c0;
+}
 
 .error {
   color: #ff4500;

@@ -1,36 +1,65 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import { fetchGallery } from '../gallery-api';
 import SearchBar from '../SearchBar/SearchBar';
-
-// import SearchBar from '../SearchBar/SearchBar';
-
-// import ImageGallery from '../ImageGallery/ImageGallery';
-
-// import { fetchGallery } from '../gallery-api';
+import css from '../App/App.module.css';
+import { tryAgain } from '../ErrorMessage/ErrorMessage';
 
 function App() {
+  const [query, setQuery] = useState('');
   const [photos, setPhotos] = useState([]);
-  // const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const [isLoading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (query === '') {
+      return;
+    }
+    async function getData() {
+      try {
+        setError(false);
+        setLoading(true);
+        const fetchedPhotos = await fetchGallery(query, page);
+        if(fetchedPhotos.results.length === 0) {
+          tryAgain();
+          return;
+        }
+        setPhotos((prevData) => {
+          return [...prevData, ...fetchedPhotos.results];
+        });
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    getData();
+  }, [page, query]);
 
   const handleSearch = async (newQuery) => {
-    const fetchedPhotos = await fetchGallery(newQuery);
-    setPhotos(fetchedPhotos);
+    setQuery(newQuery);
+    setPage(1);
+    setPhotos([]);
   };
 
-  // useEffect(() => {
-  //   async function getPhotos() {
-
-  //   }
-
-  //   getPhotos();
-  // }, []);
+  const handleLoadMore = () => {
+    setPage(page + 1);
+  };
 
   return (
-    <div>
+    <div className={css.div}>
       <SearchBar onSearch={handleSearch} />
-      {photos.length > 0 && <ImageGallery photos={photos.results} />}
+
+      {error && <p className={css.p}>Oops.. Something went wrong</p>}
+      {photos.length > 0 && <ImageGallery gallery={photos} />}
+      {photos.length > 0 && !isLoading && (
+        <button onClick={handleLoadMore} className={css.button}>
+          Load more
+        </button>
+      )}
+      {isLoading && <p className={css.p}>Loading gallery...</p>}
     </div>
   );
 }
