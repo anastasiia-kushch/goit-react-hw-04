@@ -15,9 +15,7 @@ function App() {
   // const [query, setQuery] = useState('');
 
   const handleSearch = async (newQuery) => {
-    console.log(newQuery);
     const fetchedPhotos = await fetchGallery(newQuery);
-    console.log(fetchedPhotos);
     setPhotos(fetchedPhotos);
   };
 
