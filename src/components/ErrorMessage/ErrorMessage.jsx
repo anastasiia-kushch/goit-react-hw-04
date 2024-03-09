@@ -1,4 +1,5 @@
 import toast from 'react-hot-toast';
+import css from '../ErrorMessage/ErrorMessage.module.css'
 
 export const warning = () => {
   toast.error('Please enter a searchquery', {
@@ -12,4 +13,8 @@ export const tryAgain = () => {
     duration: 2000,
     icon: '😭',
   });
+}
+
+export default function ErrorMessage() {
+  <p className={css.p}>Oops.. Something went wrong</p>
 }
