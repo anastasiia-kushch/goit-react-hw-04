@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: #fff;
-  height: 90%;
+  height: 85%;
   object-fit: cover;
 }
 
@@ -26,6 +26,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  padding-left: 8px;
 }
 
 .image {

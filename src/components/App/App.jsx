@@ -45,7 +45,7 @@ function App() {
     getData();
   }, [page, query]);
 
-  const handleSearch = async (newQuery) => {
+  const handleSearch = (newQuery) => {
     setQuery(newQuery);
     setPage(1);
     setPhotos([]);
@@ -69,7 +69,7 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage />}
       {photos.length > 0 && (
-        <ImageGallery gallery={photos} onClick={openModal} />
+        <ImageGallery gallery={photos} onClick={openModal} openModal={openModal}/>
       )}
       {photos.length > 0 && !isLoading && (
         <button onClick={handleLoadMore} className={css.button}>

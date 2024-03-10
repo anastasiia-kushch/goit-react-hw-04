@@ -17,7 +17,6 @@ export default function ImageModal ({ isOpen, image, onCloseClick }) {
                   alt={image.description}
                   className={css.image}
                 />
-                <h4>{image.description}</h4>
               </div>
           )}
         </div>
