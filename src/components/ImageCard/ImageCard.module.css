@@ -3,4 +3,6 @@
   width: 180px;
   height: 220px;
   object-fit: cover;
+  border: 1px #959191 solid;
+  border-radius: 4px;
 }

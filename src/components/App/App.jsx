@@ -6,6 +6,7 @@ import css from '../App/App.module.css';
 import ErrorMessage, { tryAgain } from '../ErrorMessage/ErrorMessage';
 import ImageModal from '../ImageModal/ImageModal';
 import Modal from "react-modal";
+import Loader from '../Loader/Loader';
 
 
 function App() {
@@ -76,7 +77,7 @@ function App() {
           Load more
         </button>
       )}
-      {isLoading && <p className={css.p}>Loading gallery...</p>}
+      {isLoading && <Loader isLoading={isLoading}/>}
       <ImageModal
         isOpen={modalIsOpen}
         image={selectedImage}
