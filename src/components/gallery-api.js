@@ -9,7 +9,7 @@ export const fetchGallery = async (searchQuery, page = 1) => {
     `/search/photos?client_id=${ACCESS_KEY}`, {
       params: {
       query: searchQuery,
-      per_page: 15,
+      per_page: 18,
       page
       }
     }
