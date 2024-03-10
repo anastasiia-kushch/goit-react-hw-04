@@ -17,6 +17,7 @@ export default function ImageModal ({ isOpen, image, onCloseClick }) {
                   alt={image.description}
                   className={css.image}
                 />
+                <h2 className={css.text}>Likes: {image.likes}</h2>
               </div>
           )}
         </div>

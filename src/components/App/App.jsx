@@ -69,7 +69,7 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage />}
       {photos.length > 0 && (
-        <ImageGallery gallery={photos} onClick={openModal} openModal={openModal}/>
+        <ImageGallery gallery={photos} openModal={openModal}/>
       )}
       {photos.length > 0 && !isLoading && (
         <button onClick={handleLoadMore} className={css.button}>
