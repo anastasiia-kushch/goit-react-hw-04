@@ -16,5 +16,5 @@ export const tryAgain = () => {
 }
 
 export default function ErrorMessage() {
-  <p className={css.p}>Oops.. Something went wrong</p>
+  <p className={css.p}>Oops.. Something went wrong. Try to reload the page!</p>
 }
