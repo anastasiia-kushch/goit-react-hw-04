@@ -5,9 +5,9 @@ import SearchBar from '../SearchBar/SearchBar';
 import css from '../App/App.module.css';
 import ErrorMessage, { tryAgain } from '../ErrorMessage/ErrorMessage';
 import ImageModal from '../ImageModal/ImageModal';
-import Modal from "react-modal";
+import Modal from 'react-modal';
 import Loader from '../Loader/Loader';
-
+import LoadMoreBtn from '../LoadMoreBtn/LoadMoreBtn';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -70,14 +70,10 @@ function App() {
       <SearchBar onSearch={handleSearch} />
       {error && <ErrorMessage />}
       {photos.length > 0 && (
-        <ImageGallery gallery={photos} openModal={openModal}/>
+        <ImageGallery gallery={photos} openModal={openModal} />
       )}
-      {photos.length > 0 && !isLoading && (
-        <button onClick={handleLoadMore} className={css.button}>
-          Load more
-        </button>
-      )}
-      {isLoading && <Loader isLoading={isLoading}/>}
+      {photos.length > 0 && !isLoading && <LoadMoreBtn loadMore={handleLoadMore}/>}
+      {isLoading && <Loader isLoading={isLoading} />}
       <ImageModal
         isOpen={modalIsOpen}
         image={selectedImage}
