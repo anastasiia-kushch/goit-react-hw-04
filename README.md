@@ -20,7 +20,7 @@ Welcome to Gallery Website! Here, you can explore a vast collection of stunning 
 
 To start exploring Gallery:
 
-1.  Visit our website.
+1.  Visit my website.
 2.  Use the search bar to enter keywords related to the images you're interested in.
 3.  Browse through the search results and click on an image to view it in full-screen mode using the modal window.
 4.  Use pagination controls to navigate to additional pages of search results.
