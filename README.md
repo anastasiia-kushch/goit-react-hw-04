@@ -18,7 +18,7 @@ Welcome to Gallery Website! Here, you can explore a vast collection of stunning 
 
 ## Getting Started
 
-To start exploring our Image Gallery:
+To start exploring Gallery:
 
 1.  Visit our website.
 2.  Use the search bar to enter keywords related to the images you're interested in.
